@@ -1,15 +1,22 @@
-import React from "react"
-import LoginParticulars from "./LoginParticulars"
+import React from "react";
+import LoginParticulars from "./LoginParticulars";
 
-const Login_Form = () =>{
-    const ITEMS = [{name: 'Email', type: 'text'}, {name:'Password', type: 'Password'}]
-    
-    return(
-        <div>
-        <LoginParticulars name={ITEMS[0].name} type={ITEMS[0].type} />
-        <LoginParticulars name={ITEMS[1].name} type={ITEMS[1].type} />
-        </div>
-    )
-}
+const Login_Form = () => {
+  const loginSubmitHandler = () =>{
+    console.log("submitted!")
+  }
+
+  const ITEMS = [
+    {id: "item1", name: "Email", type: "text" },
+    {id: "item2", name: "Password", type: "Password"}
+  ];
+
+  return (
+    <form onSubmit={loginSubmitHandler}> 
+      <LoginParticulars info={ITEMS} />
+      <button type='submit'>Submit</button>
+    </form>
+  );
+};
 
 export default Login_Form;

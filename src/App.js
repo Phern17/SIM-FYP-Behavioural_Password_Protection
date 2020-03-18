@@ -7,21 +7,29 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Login from "./Login/pages/Login";
-import Questionnaire from "./Questionnaire/pages/Questionnaire";
+import SignUp from "./SignUp/pages/SignUp"
+import PasswordGenerator from "./PwdGen/pages/PwdGen";
+import MainNavigation from "./Shared/components/navigation/MainNavigation"
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Login />
-          </Route>
-          <Route path="/questionnaire" exact>
-            <Questionnaire />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
+        <MainNavigation />
+        <main>
+          <Switch>
+            <Route path="/" exact>
+              <Login />
+            </Route>
+            <Route path="/pwdgen" exact>
+              <PasswordGenerator />
+            </Route>
+            <Route path="/signup" exact>
+              <SignUp />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
+        </main>
       </Router>
     </div>
   );
