@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Input from '../../Shared/components/FormElements/Input'
 import { useForm } from "../../Shared/hooks/formhook"
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../Shared/util/validators';
+import {AuthContext} from "../../Shared/components/context/AuthContext"
 
 
 const SignUp = () => {
@@ -22,10 +23,12 @@ const SignUp = () => {
 
     }, false);
 
+    const auth = useContext(AuthContext)
+
     const authSubmitHandler = async event => {
         event.preventDefault();
-        
-        try{
+
+       try{
             const response = await fetch('http://localhost:5000/api/users/signup', {
             method: 'POST',
             headers:{
@@ -38,13 +41,15 @@ const SignUp = () => {
             })
         })
         
-        const responseData = await response.json();
+      const responseData = await response.json(); 
+    
 
-        console.log(responseData);
+       console.log(responseData);
     }catch(err){
             console.log(err);
         } 
         console.log(formState);
+        auth.login();
       };
     
     return (

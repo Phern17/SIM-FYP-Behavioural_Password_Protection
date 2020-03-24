@@ -1,4 +1,4 @@
-import React ,{useState, useCallback} from "react";
+import React, { useState, useCallback } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -9,47 +9,71 @@ import "./App.css";
 import Login from "./Login/pages/Login";
 import SignUp from "./SignUp/pages/SignUp";
 import PasswordGenerator from "./PwdGen/pages/PwdGen";
-import MainNavigation from "./Shared/components/navigation/MainNavigation";
+//import MainNavigation from "./Shared/components/navigation/MainNavigation";
 import { AuthContext } from "./Shared/components/context/AuthContext";
+import {Home} from "./Home/components/home";
+import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+import NavigationBar from "./Shared/components/navigation/NavigationBar"
 
 const App = () => {
-  
-  const [LoginState, setLoginState] = useState(false);
+  const [isLoggedIn, setLoginState] = useState(false);
 
   //loginState = true means user needs to login
-  
-  const login = useCallback(()=> {
+
+  const login = useCallback(() => {
     setLoginState(true);
-  }, [])
+  }, []);
 
   const logout = useCallback(() => {
     setLoginState(false);
-  }, []) 
+  }, []);
+
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <Switch>
+        <Route exact path="/home" component={Home} />
+         <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/CreateAccount" exact>
+          <SignUp />
+        </Route>
+        <Route path="/pwdgen">
+          <PasswordGenerator />
+        </Route>
+        <Redirect to="/home" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route exact path="/home" component={Home} />
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/CreateAccount" exact>
+          <SignUp />
+        </Route>
+      </Switch>
+    );
+  }
 
   return (
     <div className="App">
+      <AuthContext.Provider
+        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      >
         <Router>
-          <MainNavigation />
+          <NavigationBar />
           <main>
-          <AuthContext.Provider value={{isLoggedIn: LoginState, login: login, logout: logout}}>
-            <Switch>
-              <Route path="/" exact>
-                <Login />
-              </Route>
-              <Route path="/pwdgen" exact>
-                <PasswordGenerator />
-              </Route>
-              <Route path="/signup" exact>
-                <SignUp />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
-            </AuthContext.Provider> 
-          </main>
+            {routes}
+            </main>
         </Router>
-     
+      </AuthContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
