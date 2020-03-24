@@ -9,11 +9,10 @@ import "./App.css";
 import Login from "./Login/pages/Login";
 import SignUp from "./SignUp/pages/SignUp";
 import PasswordGenerator from "./PwdGen/pages/PwdGen";
-//import MainNavigation from "./Shared/components/navigation/MainNavigation";
 import { AuthContext } from "./Shared/components/context/AuthContext";
-import {Home} from "./Home/components/home";
+import { Home } from "./Home/components/home";
 import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
-import NavigationBar from "./Shared/components/navigation/NavigationBar"
+import NavigationBar from "./Shared/components/navigation/NavigationBar";
 
 const App = () => {
   const [isLoggedIn, setLoginState] = useState(false);
@@ -34,7 +33,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route exact path="/home" component={Home} />
-         <Route path="/login" exact>
+        <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/CreateAccount" exact>
@@ -61,18 +60,16 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <React.Fragment>
       <AuthContext.Provider
         value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
       >
         <Router>
           <NavigationBar />
-          <main>
-            {routes}
-            </main>
+          {routes}
         </Router>
       </AuthContext.Provider>
-    </div>
+    </React.Fragment>
   );
 };
 

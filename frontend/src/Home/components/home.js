@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./home.css";
+import classes from "./home.module.css";
 import { Row, Col } from "react-bootstrap";
 
 export const Home = () => (

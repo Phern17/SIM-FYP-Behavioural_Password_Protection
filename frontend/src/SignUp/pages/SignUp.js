@@ -3,7 +3,7 @@ import Input from '../../Shared/components/FormElements/Input'
 import { useForm } from "../../Shared/hooks/formhook"
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../Shared/util/validators';
 import {AuthContext} from "../../Shared/components/context/AuthContext"
-
+import { Button } from "react-bootstrap";
 
 const SignUp = () => {
     const [formState, inputHandler] = useForm({
@@ -81,7 +81,7 @@ const SignUp = () => {
           validator = {[VALIDATOR_MINLENGTH(5)]}
           onInput = {inputHandler}
         />
-        <button type="Submit" disabled={!formState.isValid}>Sign Up</button>
+        <Button type="Submit" disabled={!formState.isValid}>Sign Up</Button>
       </form>
     );
 }

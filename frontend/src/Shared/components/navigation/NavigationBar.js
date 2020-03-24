@@ -5,30 +5,6 @@ import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 import img from "./logo.jpg";
 
-
-/*
-const NavigationLinks = props => {
-  const auth = useContext(AuthContext)
-
-  return (
-    <ul className="nav-links">
-     <li>
-        <NavLink to="/Home">Home</NavLink>
-      </li>
-      {!auth.isLoggedIn && (<li>
-        <NavLink to="/login">Login</NavLink>
-      </li>) }
-      {!auth.isLoggedIn && (<li>
-        <NavLink to="/CreateAccount">SignUp</NavLink>
-      </li>)}
-      {auth.isLoggedIn && (<li>
-       <NavLink to="/pwdgen">Password Generation</NavLink>
-      </li> )}
-    </ul>
-  );
-};
-*/
-
 const Styles = styled.div`
   .navbar {
     background-color: #484849;
