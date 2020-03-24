@@ -36,6 +36,9 @@ const MainNavigation = props => {
         <h1 className="main-navigation__title">
           <Link to="/questionnaire">( ° ͜ʖ͡°)EzPass</Link>
         </h1>
+        {/*<nav>
+          <NavigationLinks />
+        </nav> */}
       </MainHeader>
     </React.Fragment>
   );
