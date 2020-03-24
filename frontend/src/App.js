@@ -28,10 +28,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{isLoggedIn: LoginState, login: login, logout: logout}}>
         <Router>
           <MainNavigation />
           <main>
+          <AuthContext.Provider value={{isLoggedIn: LoginState, login: login, logout: logout}}>
             <Switch>
               <Route path="/" exact>
                 <Login />
@@ -44,9 +44,10 @@ const App = () => {
               </Route>
               <Redirect to="/" />
             </Switch>
+            </AuthContext.Provider> 
           </main>
         </Router>
-     </AuthContext.Provider> 
+     
     </div>
   );
 }
