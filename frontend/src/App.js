@@ -12,7 +12,8 @@ import PasswordGenerator from "./PwdGen/pages/PwdGen";
 import { AuthContext } from "./Shared/components/context/AuthContext";
 import { Home } from "./Home/components/home";
 import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
-import NavigationBar from "./Shared/components/navigation/NavigationBar";
+//import NavigationBar from "./Shared/components/navigation/NavigationBar";
+import MainNavigation from "./Shared/components/navigation/MainNavigation"
 
 const App = () => {
   const [isLoggedIn, setLoginState] = useState(false);
@@ -30,21 +31,15 @@ const App = () => {
   let routes;
 
   if (isLoggedIn) {
-    routes = (
+     routes = (
       <Switch>
         <Route exact path="/home" component={Home} />
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        <Route path="/CreateAccount" exact>
-          <SignUp />
-        </Route>
-        <Route path="/pwdgen">
+        <Route path="/pwdgen" exact>
           <PasswordGenerator />
         </Route>
         <Redirect to="/home" />
       </Switch>
-    );
+    )
   } else {
     routes = (
       <Switch>
@@ -52,24 +47,25 @@ const App = () => {
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/CreateAccount" exact>
+        <Route path="/signup" exact>
           <SignUp />
         </Route>
+        <Redirect to="/home" />
       </Switch>
     );
   }
 
   return (
-    <React.Fragment>
+    <div className="App">
       <AuthContext.Provider
         value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
       >
         <Router>
-          <NavigationBar />
+          <MainNavigation className="App-header"/>
           {routes}
         </Router>
       </AuthContext.Provider>
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,12 +1,12 @@
-import React /*,{useContext}*/ from 'react';
+import React ,{useContext} from 'react';
 import Input from '../../Shared/components/FormElements/Input'
 import { useForm } from "../../Shared/hooks/formhook"
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../Shared/util/validators';
-//import { AuthContext } from '../../Shared/components/context/AuthContext';
+import { AuthContext } from '../../Shared/components/context/AuthContext';
 
 const Login = () => {
 
-  /* const auth = useContext(AuthContext) */
+   const auth = useContext(AuthContext) 
 
     const [formState, inputHandler] = useForm({
         email : {
@@ -23,7 +23,7 @@ const Login = () => {
     const authSubmitHandler = async event => {
         event.preventDefault();
         
-       /* try {
+        try {
           const response = await fetch("http://localhost:5000/api/users/login", {
             method: "POST",
             headers: {
@@ -37,12 +37,13 @@ const Login = () => {
           });
     
           const responseData = await response.json();
-          auth.login();
+          
           console.log(responseData);
         } catch (err) {
           console.log(err);
-        } */
+        } 
         console.log(formState)
+        auth.login();
       };
     
     return (
@@ -65,7 +66,7 @@ const Login = () => {
           validator = {[VALIDATOR_MINLENGTH(5)]}
           onInput = {inputHandler}
         />
-        <button type="Submit" >Login</button>
+        <button type="Submit" disabled={!formState.isValid}>Login</button>
       </form>
     );
 }

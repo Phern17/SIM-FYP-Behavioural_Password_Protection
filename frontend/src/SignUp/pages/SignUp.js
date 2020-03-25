@@ -4,6 +4,7 @@ import { useForm } from "../../Shared/hooks/formhook"
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../Shared/util/validators';
 import {AuthContext} from "../../Shared/components/context/AuthContext"
 import { Button } from "react-bootstrap";
+import  "./SignUp.css"
 
 const SignUp = () => {
     const [formState, inputHandler] = useForm({
