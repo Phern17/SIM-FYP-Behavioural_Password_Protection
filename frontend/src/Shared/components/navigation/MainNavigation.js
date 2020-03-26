@@ -1,22 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import MainHeader from './MainHeader';
-import NavLinks from './NavLinks';
-import './MainNavigation.css';
-
+import React from "react";
+//import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
+import MainHeader from "./MainHeader";
+import NavLinks from "./NavLinks";
+import "./MainNavigation.css";
+import img from "./logo.jpg";
 
 const MainNavigation = props => {
-
   return (
     <React.Fragment>
       <MainHeader>
-        <h1 className="main-navigation__title">
-          <Link to="/home">EzPass</Link>
-        </h1>
-        <nav className="main-navigation__header-nav">
-          <NavLinks />
-        </nav>
+        <Navbar.Brand href="/home">
+          <img
+            src={img}
+            width="140"
+            height="60"
+            className="d-inline-block align-top"
+            alt="EzPass logo"
+          />
+        </Navbar.Brand>
+        <NavLinks />
       </MainHeader>
     </React.Fragment>
   );

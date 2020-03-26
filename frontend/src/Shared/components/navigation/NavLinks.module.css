@@ -1,0 +1,47 @@
+.NavLinks {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  /* align-items: center; */
+}
+
+.NavLinks li {
+  margin: 1rem;
+}
+
+.NavLinks a {
+  border: 1px solid transparent;
+  color: white;
+  text-decoration: none;
+  float: right;
+  padding: 0.5rem;
+}
+
+.NavLinks a:hover {
+  color: #f1c40f;
+}
+/* 
+@media (min-width: 768px) {
+  .NavLinks {
+    flex-direction: row;
+  }
+} */
+
+/* .NavLinks button {
+  cursor: pointer;
+  border: 1px solid #292929;
+  color: #292929;
+  background: transparent;
+  padding: 0.5rem;
+  font: inherit;
+}
+
+.NavLinks button:focus {
+  outline: none;
+}
+
+.NavLinks button:hover,
+.NavLinks button:active {
+  background: #292929;
+  color: white;
+}*/

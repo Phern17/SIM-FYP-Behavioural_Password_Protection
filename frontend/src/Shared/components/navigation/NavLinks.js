@@ -1,17 +1,17 @@
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import {AuthContext} from "../context/AuthContext"
-// import { Nav, Navbar } from "react-bootstrap";
-// import styled from "styled-components";
-// import img from "./logo.jpg";
-import "./NavLinks.css"
+import { AuthContext } from "../context/AuthContext";
 
+import classes from "./NavLinks.module.css";
+//import "./NavLinks.css"
+
+// import { Navbar } from "react-bootstrap";
 
 const NavLinks = props => {
   const auth = useContext(AuthContext);
 
   return (
-    <ul className="nav-links">
+    <ul className={classes.NavLinks}>
       <li>
         <NavLink to="/home" exact>
           Home
@@ -39,8 +39,8 @@ const NavLinks = props => {
       )}
     </ul>
   );
-      }
-  export default NavLinks;
+};
+export default NavLinks;
 
 // const Styles = styled.div`
 //   .navbar {
@@ -73,7 +73,6 @@ const NavLinks = props => {
 
 //   const auth = useContext(AuthContext);
 
-  
 //   return(
 //   <Styles>
 //     <Navbar expand="lg">
@@ -107,6 +106,6 @@ const NavLinks = props => {
 //       </Navbar.Collapse>
 //     </Navbar>
 //   </Styles>)
-// }; 
+// };
 
 // export default NavigationBar
