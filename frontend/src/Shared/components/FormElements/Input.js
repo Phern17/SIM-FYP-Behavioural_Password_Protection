@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import {validate} from "../../util/validators";
+import {Form} from "react-bootstrap";
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -77,7 +78,7 @@ const Input = props => {
   //and inputState.touchHandler = true;
   return (
     <div>
-      <label htmlFor={props.id}>{props.label}</label>
+      <Form.Label htmlFor={props.id}>{props.label}</Form.Label>
       {element}   
   {!inputState.isValid && inputState.touchHandler && <p>{props.errorText}</p>}
     </div>
