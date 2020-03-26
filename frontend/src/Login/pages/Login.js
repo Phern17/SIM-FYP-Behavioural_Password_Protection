@@ -12,7 +12,7 @@ import LoadingSpinner from "../../Shared/components/UI-Element/LoadingSpinner"
 const Login = () => {
   const auth = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
-  //const [error, setError] = useState();
+  const [hasError, setHasError] = useState(false);
 
   const [formState, inputHandler] = useForm(
     {
@@ -47,6 +47,12 @@ const Login = () => {
       const responseData = await response.json();
 
       console.log(responseData);
+
+      if(!response.ok)
+      {
+        throw new Error(responseData.message); 
+      }
+
       setIsLoading(false);
       auth.login();
 
@@ -54,19 +60,20 @@ const Login = () => {
 
       console.log(err);
       setIsLoading(false);
-      //setError(err.message || "Something went wrong, please try again later.");
+      setHasError(true);
     }
   };
 
   return (
     <form onSubmit={authSubmitHandler}>
       {isLoading && <LoadingSpinner asOverlay />}
+      {hasError && <p>Invalid email or password, please try again</p>}
       <Input
         element="input"
         id="email"
         type="email"
         label="Email"
-        errorText="Wrong email, please try again."
+        errorText="Wrong email format, please try again."
         validator={[VALIDATOR_REQUIRE()]}
         onInput={inputHandler}
       />
@@ -75,7 +82,7 @@ const Login = () => {
         id="password"
         type="password"
         label="Password"
-        errorText="Wrong password, please try again."
+        errorText="Password cannot be shorter than 5 characters, please try again."
         validator={[VALIDATOR_MINLENGTH(5)]}
         onInput={inputHandler}
       />

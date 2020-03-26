@@ -32,6 +32,7 @@ const SignUp = () => {
 
   const auth = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const authSubmitHandler = async event => {
     event.preventDefault();
@@ -53,13 +54,19 @@ const SignUp = () => {
       const responseData = await response.json();
 
       console.log(responseData);
+
+      if(!response.ok)
+      {
+        throw new Error(responseData.message);
+      }
       setIsLoading(false);
       auth.login();
 
     } catch (err) {
 
       console.log(err);
-      auth.login();
+      setIsLoading(false);
+      setHasError(true);
     }
     
     
@@ -68,6 +75,7 @@ const SignUp = () => {
   return (
     <form onSubmit={authSubmitHandler}>
       {isLoading && <LoadingSpinner asOverlay />}
+      {hasError && <p>User name or Email already existed, please use another user name or password.</p>}
       <Input
         element="input"
         id="name"
