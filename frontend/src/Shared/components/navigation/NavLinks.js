@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import classes from "./NavLinks.module.css";
 //import "./NavLinks.css"
 
-// import { Navbar } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const NavLinks = props => {
   const auth = useContext(AuthContext);
@@ -34,7 +34,7 @@ const NavLinks = props => {
       )}
       {auth.isLoggedIn && (
         <li>
-          <button onClick={auth.logout}>LOGOUT</button>
+          <Button onClick={auth.logout}>LOGOUT</Button>
         </li>
       )}
     </ul>
