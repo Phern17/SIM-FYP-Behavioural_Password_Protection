@@ -23,7 +23,7 @@ function getDiceRoll(){
 
 //return passphrases
 function getPassphrase(number){
-    var wordlist = getWordlist('util/eff_large_wordlist.txt');
+    var wordlist = getWordlist('./util/eff_large_wordlist.txt');
     var passphrase = new Array();
 
     for(var i = 0; i < number; i++){
@@ -40,12 +40,12 @@ const getDefaultPass = (req, res, next) => {
     const size = 5;     //length of passphrase
     const noPassphrases = 4;        //how many passphrases to generate
 
+    var passphrase = '';
     for(var i = 0; i < noPassphrases; i++)
     {
-        var passphrase = getPassphrase(size);
+        passphrase = getPassphrase(size);
         passphrases.push(passphrase);
     }
-    
     res.json({passphrase: passphrases});
 };
 
