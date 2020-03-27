@@ -19,7 +19,7 @@ export const Home = () => (
         </div>
       </Row>
       <Row style={{ height: "30vh" }}>
-        <Col md={{ span: 4 }}>
+        <Col md={{ span: 6 }}>
           <div className={classes.FeaturesCol}>
             <h4>1.Password Generation</h4>
             <p>
@@ -30,9 +30,9 @@ export const Home = () => (
             </p>
           </div>
         </Col>
-        <Col md={{ span: 4 }}>
+        <Col md={{ span: 6 }}>
           <div className={classes.FeaturesCol}>
-            <h4>2. Password Storage</h4>
+            <h4>2. Password Management</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -41,7 +41,7 @@ export const Home = () => (
             </p>
           </div>
         </Col>
-        <Col md={{ span: 4 }}>
+        {/* <Col md={{ span: 4 }}>
           <div className={classes.FeaturesCol}>
             <h4>3. Password Sth</h4>
             <p>
@@ -51,7 +51,7 @@ export const Home = () => (
               porttitor massa id neque
             </p>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </div>
   </React.Fragment>

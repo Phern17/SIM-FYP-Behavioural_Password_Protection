@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const usersRoutes = require("./routes/users-routes");
+const generatorRoutes = require('./routes/generator-route');
 const HttpError = require("./models/http-error");
 
 const app = express();
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/users', usersRoutes);
+app.use('/api/generator', generatorRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route.", 404);
@@ -37,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect('mongodb+srv://phern:BIEBrGRMgFmM3zhT@cluster0-oslue.mongodb.net/test?retryWrites=true&w=majority')
+  .connect("mongodb+srv://huz:BaSkbgk03vN20Gz8@cluster1-m7yhz.mongodb.net/test?retryWrites=true&w=majority")
   .then(() => {
     app.listen(5000);
   })
