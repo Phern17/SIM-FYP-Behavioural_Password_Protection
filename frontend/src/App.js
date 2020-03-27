@@ -13,7 +13,8 @@ import { AuthContext } from "./Shared/components/context/AuthContext";
 import { Home } from "./Home/components/home";
 import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
 //import NavigationBar from "./Shared/components/navigation/NavigationBar";
-import MainNavigation from "./Shared/components/navigation/MainNavigation"
+import MainNavigation from "./Shared/components/navigation/MainNavigation";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const [isLoggedIn, setLoginState] = useState(false);
@@ -31,37 +32,36 @@ const App = () => {
   let routes;
 
   if (isLoggedIn) {
-     routes = (
+    routes = (
       <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route path="/pwdgen" exact>
+        <Route exact path='/home' component={Home} />
+        <Route path='/pwdgen' exact>
           <PasswordGenerator />
         </Route>
-        <Redirect to="/home" />
+        <Redirect to='/home' />
       </Switch>
-    )
+    );
   } else {
     routes = (
       <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route path="/login" exact>
+        <Route exact path='/home' component={Home} />
+        <Route path='/login' exact>
           <Login />
         </Route>
-        <Route path="/signup" exact>
+        <Route path='/signup' exact>
           <SignUp />
         </Route>
-        <Redirect to="/home" />
+        <Redirect to='/home' />
       </Switch>
     );
   }
 
   return (
-    <div className="App">
+    <div className='App'>
       <AuthContext.Provider
-        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
-      >
+        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}>
         <Router>
-          <MainNavigation className="App-header"/>
+          <MainNavigation className='App-header' />
           {routes}
         </Router>
       </AuthContext.Provider>

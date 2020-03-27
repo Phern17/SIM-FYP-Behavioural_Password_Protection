@@ -1,12 +1,14 @@
 .Banner {
-  height: 70vh;
-  background: linear-gradient(rgba(46, 46, 46, 0.7), rgba(32, 32, 32, 0.7)),
+  height: 60vh;
+  background: linear-gradient(
+      rgba(170, 170, 170, 0.123),
+      rgba(44, 44, 44, 0.322)
+    ),
     url("../images/homeBG.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: 75%;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -36,6 +38,11 @@
   overflow: hidden;
 }
 
+.FeaturesRow1 {
+  width: 100%;
+  padding-left: 2.5%;
+}
+
 .FeaturesH1 {
   font-weight: 500;
   font-size: 25px;
@@ -44,9 +51,9 @@
 }
 
 .FeaturesCol {
-  font-size: 20px;
   padding-left: 12.5%;
   padding-right: 12.5%;
+  font-size: 20px;
   height: 100%;
   width: 100%;
 }

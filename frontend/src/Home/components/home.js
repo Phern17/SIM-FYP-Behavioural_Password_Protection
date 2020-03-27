@@ -13,7 +13,11 @@ export const Home = () => (
       </p>
     </div>
     <div className={classes.Features}>
-      <h3 className={classes.FeaturesH1}>Overview of Features</h3>
+      <Row>
+        <div className={classes.FeaturesRow1}>
+          <h3 className={classes.FeaturesH1}>Overview of Features</h3>
+        </div>
+      </Row>
       <Row style={{ height: "30vh" }}>
         <Col md={{ span: 4 }}>
           <div className={classes.FeaturesCol}>
