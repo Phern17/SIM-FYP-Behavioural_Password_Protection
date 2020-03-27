@@ -14,11 +14,10 @@ export const Home = () => (
     </div>
     <div className={classes.Features}>
       <h3 className={classes.FeaturesH1}>Overview of Features</h3>
-
       <Row style={{ height: "30vh" }}>
         <Col md={{ span: 4 }}>
           <div className={classes.FeaturesCol}>
-            <p>1.Password Generation</p>
+            <h4>1.Password Generation</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -29,7 +28,7 @@ export const Home = () => (
         </Col>
         <Col md={{ span: 4 }}>
           <div className={classes.FeaturesCol}>
-            <p>2. Password Storage</p>
+            <h4>2. Password Storage</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -40,7 +39,7 @@ export const Home = () => (
         </Col>
         <Col md={{ span: 4 }}>
           <div className={classes.FeaturesCol}>
-            <p>3. Password Sth</p>
+            <h4>3. Password Sth</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.

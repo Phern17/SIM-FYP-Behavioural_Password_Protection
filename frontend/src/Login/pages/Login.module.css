@@ -1,0 +1,61 @@
+.loginBG {
+  height: 100vh;
+  background: url("loginBG.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/* 
+.logoHeader {
+  height: 20vh;
+  background: url(".src/Shared/Components/Navigation/logo.jpg") no-repeat center
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 40%;
+} */
+
+.Img,
+.Form {
+  border-radius: 25px;
+}
+
+.Card {
+  margin-top: 30%;
+}
+
+.Form {
+  color: rgb(97, 97, 97);
+  font-family: "Lucida Bright";
+}
+
+.Button {
+  border: none;
+  width: 100%;
+  background-color: rgb(97, 97, 97);
+  color: #f1c40f;
+}
+
+.Button:hover {
+  background-color: rgb(71, 71, 71);
+  box-shadow: 0px 7px 10px rgba(11, 12, 11, 0.651);
+  color: #ffcf0e;
+}
+
+.ForgetPassDiv {
+  text-align: right;
+  font-style: italic;
+}
+
+.CreateAccDiv {
+  margin-top: 4%;
+  text-align: center;
+}
+
+.ForgetPass,
+.CreateAcc {
+  color: #5f5f5f !important;
+}
