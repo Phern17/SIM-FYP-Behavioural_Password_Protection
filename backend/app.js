@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect("mongodb+srv://huz:BaSkbgk03vN20Gz8@cluster1-m7yhz.mongodb.net/test?retryWrites=true&w=majority")
+  .connect("mongodb+srv://phern:BIEBrGRMgFmM3zhT@cluster0-oslue.mongodb.net/test?retryWrites=true&w=majority")
   .then(() => {
     app.listen(5000);
   })

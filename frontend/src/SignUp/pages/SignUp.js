@@ -75,7 +75,7 @@ const SignUp = () => {
   return (
     <form onSubmit={authSubmitHandler}>
       {isLoading && <LoadingSpinner asOverlay />}
-      {hasError && <p>User name or Email already existed, please use another user name or password.</p>}
+      {hasError && <p>User name or Email already existed, please use another user name or email.</p>}
       <Input
         element="input"
         id="name"
